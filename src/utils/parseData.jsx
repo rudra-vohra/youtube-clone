@@ -16,7 +16,7 @@ const parseData = async (items) => {
       videoIds.push(item.id.videoId);
     });
 
-    // parsing the channel data
+    // fetching the channel data
     const {
       data: { items: channelsData },
     } = await axios.get(
@@ -33,7 +33,7 @@ const parseData = async (items) => {
       })
     );
 
-    // Parsing video data
+    // fetching video data
     const {
       data: { items: videosData },
     } = await axios.get(
@@ -52,7 +52,7 @@ const parseData = async (items) => {
           videoId: item.id.videoId,
           videoTitle: item.snippet.title,
           videoDescription: item.snippet.description,
-          videoThumbnail: item.snippet.thumbnails.medium.url,
+          videoThumbnail: item.snippet.thumbnails.high.url,
           videoLink: `https://www.youtube.com/watch?v=${item.id.videoId}`,
           videoDuration: parseVideoDuration(
             videosData[index].contentDetails.duration

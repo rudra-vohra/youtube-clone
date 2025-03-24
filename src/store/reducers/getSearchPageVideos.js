@@ -12,15 +12,17 @@ export const getSearchPageVideos = createAsyncThunk(
     } = getState();
     const response = await axios.get(
       `https://youtube.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${API_KEY}&part=snippet&maxResults=20&type=video${
-        isNext ? `&pageToken=${nextPageTokenFromState}` : ''
+        isNext && nextPageTokenFromState
+          ? `&pageToken=${nextPageTokenFromState}`
+          : ''
       }`
     );
-    const items = response.data.items;
+    const { items, nextPageToken } = response.data;
     const parsedData = await parseData(items);
 
     return {
       parsedData: [...videos, ...parsedData],
-      nextPageToken: nextPageTokenFromState,
+      nextPageToken: nextPageToken || null,
     };
   }
 );

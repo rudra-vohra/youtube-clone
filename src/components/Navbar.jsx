@@ -34,7 +34,7 @@ const Navbar = () => {
         <div>
           <RxHamburgerMenu />
         </div>
-        <div className="flex gap-2 items-center justify-center">
+        <div className="flex gap-2 items-center justify-center cursor-pointer">
           <BsYoutube className="text-red-500 text-3xl" />
           <span className="text-2xl tracking-tighter font-medium mb-1">
             YouTube

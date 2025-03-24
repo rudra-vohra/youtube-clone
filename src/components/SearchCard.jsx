@@ -6,7 +6,7 @@ export default function SearchCard({ data }) {
     <div className="flex gap-4">
       <div className="relative">
         {/* Video Thumbnail and Duration */}
-        <span className="absolute bottom-2 right-2 text-sm bg-black opacity-85 px-2 py-0.5 z-10 rounded">
+        <span className="absolute bottom-2 right-2 text-sm bg-black bg-opacity-75 px-2 py-0.5 z-10 rounded">
           {data.videoDuration}
         </span>
         <Link to={`/watch/${data.videoId}`}>
@@ -16,11 +16,6 @@ export default function SearchCard({ data }) {
             className="h-[280px] w-[500px] rounded-xl object-cover"
           />
         </Link>
-        <img
-          src={data.videoThumbnail}
-          alt="Thumbnail"
-          className="h-[280px] w-[500px] rounded-xl object-cover"
-        />
       </div>
 
       <div className="flex gap-0.5 mt-1 flex-col">

@@ -6,14 +6,14 @@ export default function Card({ data }) {
     <div className="w-96 h-60 flex gap-3 flex-col mb-4">
       <div className="relative">
         {/* Video Thumbnail and Duration */}
-        <span className="absolute bottom-2 right-12 text-sm bg-black opacity-85 px-2 py-0.5 z-10 rounded">
+        <span className="absolute bottom-2 right-12 text-sm bg-black bg-opacity-75 px-2 py-0.5 z-10 rounded">
           {data.videoDuration}
         </span>
         <Link to={`/watch/${data.videoId}`}>
           <img
             src={data.videoThumbnail}
             alt="Thumbnail"
-            className="h-48 w-[342px] rounded-xl"
+            className="h-48 w-[342px] rounded-xl object-cover"
           />
         </Link>
       </div>
